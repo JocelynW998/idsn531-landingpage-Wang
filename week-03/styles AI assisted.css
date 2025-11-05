@@ -1,30 +1,90 @@
+/* Table of Content
+=======================================================================
+1. Color Palette
+2. Header Styles
+3. Profile Picture Styles
+4. Quote Styles
+5. Main Content Styles
+6. Footer Styles
+7. Link Styles
+8. Typography
+============================================================ */
+/* 1. Color Palette */
+header, .intro, h1, p {
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --main-color: #050505;
+    --second-color: #602c8e;
+    --third-color: #ffffff;
+    --neutral-white:#f7f7f7;
+    --spacing
+}
+/* 2. Header Styles */
 h1{
-    color: #fffefd;
-    font-family: "Instrument Sans" , sans-serif;
-    font-weight:80 ;
-    background-color: #000000;
+    color: var(--third-color);
+    font-family: "Montserret" , sans-serif;
+    font-weight:800 ;
+    background-color: var(--main-color);
     text-align: center;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     margin:0cm;
 }
 .intro{
     font-family: Montserret, sans-serif;
-    color: #602c8e;
+    color: var(--second-color);
     text-align: center;
+    border-bottom: var(--second-color) 0.5px solid;
+    padding: 12px;
 
 }
-.profile{
-   height: 400px;
-   margin-top: 10px;
-   border: #602c8e 15px solid;
+.nav-bar{
+    text-decoration: none;
+    font-family: Montserret, sans-serif;
+    font-weight: 800;
+    color: var(--second-color);
+    text-align: center;
+    border-bottom: var(--second-color) 0.5px solid;
+    padding: 12px;
+
 }
+
+.nav-link {
+    text-decoration: none;
+    color: var(--second-color);
+    padding: 8px 20px;
+    margin: 0 10px;
+    transition: all 0.3s ease; /* 添加平滑过渡效果 */
+    border-bottom: 3px solid transparent; /* 预留边框位置，避免布局跳动 */
+    opacity: 0.6; /* 未激活时透明度变浅 */
+}
+
+.nav-link.active {
+    opacity: 1; /* 激活时完全不透明 */
+    font-weight: 900; /* 加粗 */
+    border-bottom: 4px solid var(--second-color); /* 底部粗边框 */
+}
+
+/* 3. Profile Picture Style */
+.profile{
+    display: block; 
+    margin: 0px auto;
+   height: 320px;
+   margin-top: 30px;
+    border-radius: 2%;
+   border: var(--second-color) 2px solid;
+    box-shadow: 0 4px 8px rgba(40, 8, 48, 0.345);
+}
+/* 4. Quote Style */
 .Motto{
     font-family: Montserret, sans-serif;
     font-size: 40px;
     font-weight: 800;
     text-align: center;
     width: 500px;
-    margin: 50px auto;
+    margin: 20px auto;
     margin-bottom: 1px;
 }
 #Motto-footer{
@@ -35,31 +95,264 @@ h1{
     width: 500px;
     margin: 50px auto;
     margin-top: 0;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
-.Life-Journey{
-    font-family: "Instrument Sans" , sans-serif;
-    font-weight: 60 ;
-    color: #fffefd;
-    background-color: #000000;
-    padding: 6px;
-    border-bottom: #ffffff 1px solid;
-}
-.Skills{
-    font-family: "Instrument Sans" , sans-serif;
-    font-weight: 60 ;
-    color: #ffffff;
-    background-color: #000000;
-    padding: 6px;
-    border-bottom: #ffffff 1px solid;
+
+/* 5. Main content Style */
+.main-content{
+    font-family: "Montserret" , sans-serif;
+    font-weight: 200 ;
+    color: var(--neutral-white);
+    background-color: var(--main-color);
+    padding: 0px;
+    border-bottom: var(--third-color) 1px solid;
+     display: flex;
+    flex-direction: row;
+    gap: 20px;
     
+.left-colomn{
+    flex: 1;
+    padding: 10px;
+    border-right: var(--third-color) 0.5px solid;
 }
+.right-colomn{
+    flex:1;
+    padding: 10px;
+}    
+}
+
+/* 6. Footer Style */
 .footer{
     font-family: "Instrument Sans" , sans-serif;
-    font-weight: 60 ;
-    color: #fffefd;
-    background-color: #000000;
+    font-weight: 100 ;
+    color: var(--third-color);
+    background-color: var(--main-color);
     text-align: center;
     padding: 6px;
     margin-top: 0px;
+}
+/* 7. project Style */
+/* Projects Section Styles */
+.projects-section {
+    padding: 80px 20px;
+    background-color: var(--main-color);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.projects-header h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--third-color);
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.projects-header p {
+    font-family: "Montserrat", sans-serif;
+    color: var(--neutral-white);
+    opacity: 0.7;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Project Card */
+.project-card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(96, 44, 142, 0.1);
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--second-color), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(96, 44, 142, 0.3);
+    box-shadow: 0 20px 40px rgba(96, 44, 142, 0.15);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Image */
+.card-image {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(96, 44, 142, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.view-project {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Card Content */
+.card-content {
+    padding: 25px;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-category {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--second-color);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.project-year {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8rem;
+    color: var(--neutral-white);
+    opacity: 0.6;
+}
+
+.project-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--third-color);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.project-description {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.95rem;
+    color: var(--neutral-white);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    background: rgba(96, 44, 142, 0.2);
+    color: var(--second-color);
+    border-radius: 12px;
+    border: 1px solid rgba(96, 44, 142, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .projects-header h2 {
+        font-size: 2rem;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .project-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* 加载动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.project-card:nth-child(4) {
+    animation-delay: 0.3s;
 }
