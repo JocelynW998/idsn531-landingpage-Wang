@@ -1,0 +1,602 @@
+/* Table of Content
+=======================================================================
+1. Color Palette
+2. Header Styles
+3. Profile Picture Styles
+4. Quote Styles
+5. Main Content Styles
+6. Footer Styles
+7. Link Styles
+8. Typography
+============================================================ */
+/* 1. Color Palette */
+header, .intro, h1, p {
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --main-color: #050505;
+    --second-color: #602c8e;
+    --third-color: #ffffff;
+    --neutral-white: #f7f7f7;
+    --spacing: 16px;
+    --radius: 8px; /* added for consistent rounding */
+}
+/* New global box-sizing and body defaults */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--third-color);
+    color: var(--main-color);
+}
+
+/* 2. Header Styles */
+h1{
+    color: var(--third-color);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    background-color: var(--main-color);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin: 0; /* normalized from 0cm */
+}
+.intro{
+    font-family: Montserrat, sans-serif;
+    color: var(--second-color);
+    text-align: center;
+    border-bottom: var(--second-color) 0.5px solid;
+    padding: 12px;
+
+}
+.nav-bar{
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+    font-weight: 800;
+    color: var(--second-color);
+    text-align: center;
+    border-bottom: var(--second-color) 0.5px solid;
+    padding: 12px;
+
+}
+
+/* nav interactions and accessibility */
+.nav-link {
+    text-decoration: none;
+    color: var(--second-color);
+    padding: 8px 20px;
+    margin: 0 10px;
+    transition: transform 0.18s ease, opacity 0.18s ease, border-bottom-color 0.18s ease;
+    border-bottom: 3px solid transparent;
+    opacity: 0.6;
+    outline: none;
+    border-radius: 4px;
+}
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+    opacity: 1;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+.nav-link:focus-visible {
+    box-shadow: 0 0 0 3px rgba(96,44,142,0.18);
+}
+
+/* 3. Profile Picture Style */
+/* Replace fixed height with responsive sizing and use radius variable */
+.profile {
+    display: block;
+    margin: var(--spacing) auto 0;
+    width: 100%; /* 宽度完全适应边框（容器） */
+    max-width: 320px; /* 最大宽度不超过320px，与边框保持一致 */
+    height: auto; /* 高度随原始比例自动计算（显示原始高度） */
+    max-height: none; /* 取消高度限制 */
+    object-fit: contain; /* 关键：确保图片完整显示在边框内，不裁剪，空白处留空 */
+    border-radius: var(--radius);
+    border: 2px solid var(--second-color);
+    box-shadow: 0 4px 8px rgba(40, 8, 48, 0.345);
+    /* 可选：添加背景色，让边框内空白处更协调 */
+    background-color: #f0f0f0;
+}
+
+/* 4. Quote Style */
+.Motto{
+    font-family: Montserrat, sans-serif;
+    font-size: clamp(1.5rem, 3.2vw, 2.5rem); /* responsive sizing */
+    font-weight: 800;
+    text-align: center;
+    max-width: min(90%, 40rem);
+    margin: 20px auto 1px;
+    padding: 0 var(--spacing);
+}
+#Motto-footer{
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+    text-align: center;
+    max-width: min(90%, 40rem);
+    margin: 0 auto 40px;
+    padding: 0 var(--spacing);
+}
+
+/* 5. Main content Style */
+.main-content{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    color: var(--neutral-white);
+    background-color: var(--main-color);
+    padding: 0px;
+    border-bottom: var(--third-color) 1px solid;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Keep existing misspelled class names but add correct aliases so both work */
+.left-colomn,
+.left-column {
+    flex: 1;
+    padding: 10px;
+    border-right: var(--third-color) 0.5px solid;
+}
+.right-colomn,
+.right-column {
+    flex: 1;
+    padding: 10px;
+}
+
+/* 6. Footer Style */
+.footer{
+    font-family: "Instrument Sans" , sans-serif;
+    font-weight: 100 ;
+    color: var(--third-color);
+    background-color: var(--main-color);
+    text-align: center;
+    padding: 6px;
+    margin-top: 0px;
+}
+/* 7. project Style */
+/* Make project images responsive and unify rounding */
+.card-image {
+    overflow: hidden;
+    display: block;
+    margin: var(--spacing) auto 0;
+    width: 100%;
+    max-width: 320px; /* 限制最大宽度 */
+    /* 关键：设置正方形比例 */
+    aspect-ratio: 1 / 1; /* 宽高比1:1 */
+    border-radius: var(--radius);
+    border: 2px solid var(--second-color);
+}
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 保持比例并裁剪超出部分 */
+        object-position: center; /* 从中心裁剪 */
+    }
+
+.projects-section {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    color: var(--main-color);
+    background-color: var(--third-color);
+    padding: 0px;
+    border-bottom: var(--third-color) 1px solid;
+
+    /* changed: use grid so cards automatically wrap into rows */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    justify-items: stretch;
+    align-items: start;
+    /* removed flex-wrap / flex properties */
+}
+.project-card {
+    /* removed external margins so grid gap controls spacing */
+    margin: 0;
+    padding: 10px;
+    border: var(--third-color) 0.5px solid;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 8px rgba(40, 8, 48, 0.345);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* no flex here — grid controls size; make card fill its grid cell */
+    width: 100%;
+    max-width: 320px; /* optional cap so very large columns don't make cards too wide */
+    box-sizing: border-box;
+    align-items: flex-start;
+}
+.project-card:hover,
+.project-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(40,8,48,0.28);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .projects-section {
+        justify-content: center; /* this can remain, grid still wraps */
+        /* make grid columns a bit larger on medium screens if desired */
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .Motto, #Motto-footer {
+        max-width: 90%;
+    }
+    /* .project-card no longer needs flex rules for medium screens */
+    .project-card {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link {
+        padding: 6px 10px;
+        margin: 0 6px;
+    }
+    .project-card {
+        max-width: 100%;
+        margin: 0; /* grid gap handles spacing */
+    }
+}
+/* 在现有样式基础上添加以下内容 */
+
+/* 统一导航栏激活状态样式 */
+.nav-link.active {
+    opacity: 1;
+    border-bottom-color: var(--second-color);
+}
+
+/* About页面样式 */
+.about-section {
+    font-family: "Montserrat", sans-serif;
+    padding: 30px var(--spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: var(--radius);
+    border: 2px solid var(--second-color);
+    box-shadow: 0 4px 8px rgba(40, 8, 48, 0.345);
+}
+
+.about-text {
+    padding: 20px;
+}
+
+    .about-text h2 {
+        color: var(--second-color);
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .about-text h3 {
+        color: var(--second-color);
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .about-text p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .about-text ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .about-text li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 25px;
+    }
+
+        .about-text li:before {
+            content: "•";
+            color: var(--second-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+/* 添加联系页面样式 */
+.contact-section {
+    font-family: "Montserrat", sans-serif;
+    padding: 30px var(--spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+}
+
+.contact-info {
+    padding: 20px;
+}
+
+    .contact-info h2 {
+        color: var(--second-color);
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+.contact-details {
+    margin: 30px 0;
+    line-height: 1.8;
+}
+
+.contact-hours {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.contact-form-container {
+    padding: 20px;
+}
+
+.contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(40, 8, 48, 0.15);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+.required {
+    color: #e74c3c;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+        border-color: #e74c3c;
+    }
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group small {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.submit-btn {
+    background-color: var(--second-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .submit-btn:hover {
+        background-color: #3a1045;
+    }
+
+.feedback-message {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: var(--radius);
+    display: none;
+}
+
+#success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-bar {
+        gap: 10px;
+    }
+}
+/* index主页个人照片动画效果 */
+.profile {
+    /* 基础过渡设置，确保所有动画平滑过渡 */
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-origin: center;
+    filter: brightness(1) contrast(1);
+}
+
+    .profile:hover {
+        /* 悬停时的组合动画效果 */
+        transform: scale(1.03) rotate(1deg);
+        box-shadow: 0 12px 24px rgba(96, 44, 142, 0.3);
+        border-color: #9b59b6;
+        filter: brightness(1.05) contrast(1.00);
+    }
+
+/* 导航链接增强动画 */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--second-color);
+        transition: width 0.3s ease;
+        z-index: -1;
+    }
+
+    .nav-link:hover {
+        color: #7d3c98;
+        transform: translateY(-2px);
+    }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+    .nav-link:active {
+        transform: translateY(1px);
+        color: #4a235a;
+    }
+
+    .nav-link.active {
+        color: #7d3c98;
+    }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+/* 项目卡片链接动画 */
+.project-card a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+    .project-card a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--second-color);
+        transition: width 0.3s ease;
+    }
+
+    .project-card a:hover {
+        color: var(--second-color);
+    }
+
+        .project-card a:hover::after {
+            width: 100%;
+        }
+
+    .project-card a:active {
+        color: #4a235a;
+    }
+
+/* 联系表单按钮动画 */
+.submit-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+    .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: all 0.6s ease;
+        z-index: -1;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(96, 44, 142, 0.3);
+        background-color: #7d3c98;
+    }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+    .submit-btn:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 4px rgba(96, 44, 142, 0.4);
+        background-color: #5b2c6f;
+    }
+
+/* About页面图片动画 */
+.about-image {
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+    .about-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(96, 44, 142, 0.25);
+    }
