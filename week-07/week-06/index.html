@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jocelyn Wang — Portfolio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+    
+<body class="home-page">
+
+    <div class="container">
+        <header>
+            <h1>JOCELYN WANG</h1>
+        </header>
+
+        <div class="intro">
+            <p>Graduate Student @ USC ｜Designer | Professional Makeup Artist｜<a href="https://www.xiaohongshu.com/user/profile/5d1df7ae00000000160233b4?xsec_token=YBahNB3KoJzlhEZo_O1sEWl35oKP69pVzxUHOXZiPuSAs=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0ozREk8RU42NzUyOTgwNjc5OTk3OEg9&apptime=1758436521&share_id=0680658a3d044438800783a6c449e009">Rednote Blogger</a></p>
+        </div>
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link active">This is Jocelyn</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </div>
+    <button class="toggle-btn">Toggle Content Visibility</button>
+
+    <div class="picture-motto">
+        <img class="profile" src="image/Profile.jpg" alt="profile of Jocelyn Wang">
+        <p class="Motto">"CREATE LEGENDS. LIVE LONG. FIND PEACE."</p>
+        <p id="Motto-footer">Lanzhou - Shanghai - Los Angeles</p>
+    </div>
+    <main class="main-content">
+
+        <div class="left-colomn">
+            <h3>Work Experience</h3>
+            <ul>
+                <li>Publicity Design Assistant - Tongji University Library (09/2023 - 07/2024)</li>
+                <li>Founder & Makeup Artist - Jolihub Makeup Studio (06/2024 - 07/2025)</li>
+                <li>Post Production Intern - Shanghai Xiyingli Film and Television Culture Co. (10/2023 - 01/2024)</li>
+                <li>
+                    Freelance Graphic Designer - Dai Xia Ji Brand Commission (03/2024 - 04/2024
+                    )
+                </li>
+            </ul>
+        </div>
+        <div class="right-colomn">
+            <h3>Skills</h3>
+            <ul>
+                <li>Design: Strong design skills with creative problem-solving and visual polish</li>
+                <li>Makeup & Hairstyling: Specialized at clean makeup style </li>
+                <li>Coordination & Execution: Excellent at coordinating tasks and executing plans with efficiency and reliability</li>
+            </ul>
+            <h3>Education</h3>
+            <ul>
+                <li>Master of Fine Arts in Design - University of Southern California (08/2024 - 05/2026)</li>
+                <li>Bachelor of Arts in Visual Communication Design - Tongji University (09/2020 - 07/2024)</li>
+            </ul>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <p>copyright © 2025 Jocelyn Wang</p>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            // 内容切换功能
+            $('.toggle-btn').click(function () {
+                // 根据页面不同切换不同内容区域
+                if ($('body').hasClass('projects-page')) {
+                    $('.projects-section').toggle();
+                } else if ($('body').hasClass('about-page')) {
+                    $('.about-section').toggle();
+                } else if ($('body').hasClass('contact-page')) {
+                    $('.contact-section').toggle();
+                } else {
+                    $('.picture-motto, .main-content').toggle();
+                }
+
+                // 切换按钮文本
+                $(this).text($(this).text() === 'Hide Content' ? 'Show Content' : 'Hide Content');
+            });
+        });
+    </script>
+</body>
+    
+</html>
