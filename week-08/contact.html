@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jocelyn Wang — Contact</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="contact-page">
+    <div class="container">
+        <header>
+            <h1>JOCELYN WANG</h1>
+        </header>
+
+        <div class="intro">
+            <p>
+                Graduate Student @ USC ｜Designer | Professional Makeup Artist｜<a href="https://www.xiaohongshu.com/user/profile/5d1df7ae00000000160233b4?xsec_token=YBahNB3KoJzlhEZo_O1sEWl35oKP69pVzxUHOXZiPuSAs=&xsec_source=app_share&xhsshare=CopyLink&shareRedId=N0ozREk8RU42NzUyOTgwNjc5OTk3OEg9&apptime=1758436521&share_id=0680658a3d044438800783a6c449e009">
+                    Rednote
+                    Blogger
+                </a>
+            </p>
+        </div>
+        <nav class="nav-bar">
+            <a href="index.html" class="nav-link">This is Jocelyn</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+    </div>
+    
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p>I'd love to hear from you! Whether you have questions about my work, want to collaborate, or need my services, please feel free to reach out using the form.</p>
+
+                <div class="contact-details">
+                    <p><strong>Email:</strong> zwang436@usc.edu</p>
+                    <p><strong>Location:</strong> Los Angeles, CA</p>
+                </div>
+
+                <div class="contact-hours">
+                    <h3>Response Hours</h3>
+                    <p>Monday - Friday: 9AM - 6PM PST</p>
+                    <p>Weekends: I'll get back to you on Monday</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-method">Preferred Contact Method <span class="required">*</span></label>
+                        <select id="contact-method" name="contact-method" required>
+                            <option value="">Select method</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <input type="text" id="subject" name="subject" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-date">Preferred Contact Date (Optional)</label>
+                        <input type="date" id="contact-date" name="contact-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="services">Services Needed (Optional)</label>
+                        <select id="services" name="services" multiple>
+                            <option value="design">Design Services</option>
+                            <option value="makeup">Makeup Artistry</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <small>Hold Ctrl/Cmd to select multiple</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="newsletter" value="yes">
+                            Subscribe to my newsletter for updates
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div id="success-message" class="feedback-message">
+                    <h3>Message Sent Successfully!</h3>
+                    <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                </div>
+
+                <div id="error-message" class="feedback-message">
+                    <h3>Something Went Wrong</h3>
+                    <p>Please try submitting the form again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>copyright © 2025 Jocelyn Wang</p>
+    </footer>
+
+    <script>
+        // 表单验证和提交处理
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // 隐藏反馈消息
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // 表单提交处理
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // 简单验证
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        showError(field, 'This field is required');
+                    } else {
+                        clearError(field);
+
+                        // 邮箱格式验证
+                        if (field.type === 'email' && !isValidEmail(field.value)) {
+                            isValid = false;
+                            showError(field, 'Please enter a valid email address');
+                        }
+                    }
+                });
+
+                if (isValid) {
+                    // 模拟表单提交
+                    simulateFormSubmission().then(success => {
+                        if (success) {
+                            form.reset();
+                            showSuccessMessage();
+                        } else {
+                            showErrorMessage();
+                        }
+                    });
+                }
+            });
+
+            // 实时验证
+            const requiredInputs = form.querySelectorAll('[required]');
+            requiredInputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    if (!this.value.trim()) {
+                        showError(this, 'This field is required');
+                    } else {
+                        clearError(this);
+
+                        // 邮箱验证
+                        if (this.type === 'email' && !isValidEmail(this.value)) {
+                            showError(this, 'Please enter a valid email address');
+                        }
+                    }
+                });
+            });
+
+            // 辅助函数
+            function showError(field, message) {
+                const errorElement = field.nextElementSibling;
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                field.classList.add('error');
+            }
+
+            function clearError(field) {
+                const errorElement = field.nextElementSibling;
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+                field.classList.remove('error');
+            }
+
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            function showSuccessMessage() {
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+
+                // 5秒后隐藏成功消息
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            function showErrorMessage() {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+
+            // 模拟表单提交
+            function simulateFormSubmission() {
+                return new Promise(resolve => {
+                    // 模拟网络请求延迟
+                    setTimeout(() => {
+                        resolve(true); // 总是成功
+                    }, 1500);
+                });
+            }
+        });
+        $(document).ready(function () {
+            // 内容切换功能
+            $('.toggle-btn').click(function () {
+                // 根据页面不同切换不同内容区域
+                if ($('body').hasClass('projects-page')) {
+                    $('.projects-section').toggle();
+                } else if ($('body').hasClass('about-page')) {
+                    $('.about-section').toggle();
+                } else if ($('body').hasClass('contact-page')) {
+                    $('.contact-section').toggle();
+                } else {
+                    $('.picture-motto, .main-content').toggle();
+                }
+
+                // 切换按钮文本
+                $(this).text($(this).text() === 'Hide Content' ? 'Show Content' : 'Hide Content');
+            });
+        });
+    </script>
+</body>
+
+</html>
